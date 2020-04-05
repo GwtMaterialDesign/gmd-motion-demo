@@ -17,30 +17,37 @@
  * limitations under the License.
  * #L%
  */
-package com.github.gwtmaterialdesign.client.application;
+package com.github.gwtmaterialdesign.client.application.sharedaxis.x.login;
 
+import com.github.gwtmaterialdesign.client.generator.user.User;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Widget;
-import com.google.inject.Inject;
 import com.gwtplatform.mvp.client.ViewImpl;
-import gwt.material.design.client.ui.MaterialContainer;
+import gwt.material.design.client.ui.MaterialImage;
+import gwt.material.design.client.ui.MaterialLabel;
 
-public class ApplicationView extends ViewImpl implements ApplicationPresenter.MyView {
-    interface Binder extends UiBinder<Widget, ApplicationView> {
+import javax.inject.Inject;
+
+public class LoginView extends ViewImpl implements LoginPresenter.MyView {
+
+    interface Binder extends UiBinder<Widget, LoginView> {
     }
 
     @UiField
-    MaterialContainer container;
+    MaterialImage image;
+
+    @UiField
+    MaterialLabel name;
 
     @Inject
-    ApplicationView(Binder uiBinder) {
+    LoginView(Binder uiBinder) {
         initWidget(uiBinder.createAndBindUi(this));
-        bindSlot(ApplicationPresenter.SLOT_MAIN, container);
     }
 
     @Override
-    protected void onAttach() {
-        super.onAttach();
+    public void setUser(User user) {
+        image.setUrl(user.getImage());
+        name.setText("Hi " + user.getName());
     }
 }

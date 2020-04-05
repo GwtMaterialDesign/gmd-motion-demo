@@ -23,12 +23,14 @@ package com.github.gwtmaterialdesign.client.widget;
 
 import com.github.gwtmaterialdesign.client.generator.user.User;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Composite;
-import gwt.material.design.client.ui.MaterialColumn;
-import gwt.material.design.client.ui.MaterialImage;
-import gwt.material.design.client.ui.MaterialLabel;
+import gwt.material.design.addins.client.overlay.MaterialOverlay;
+import gwt.material.design.addins.client.pathanimator.MaterialPathAnimator;
+import gwt.material.design.client.ui.*;
 
 public class UserCard extends Composite {
 
@@ -40,6 +42,12 @@ public class UserCard extends Composite {
 
     @UiField
     MaterialLabel title, description;
+
+    @UiField
+    MaterialCard card;
+
+    @UiField
+    MaterialOverlay overlay;
 
     interface DashboardCardUiBinder extends UiBinder<MaterialColumn, UserCard> {
     }
@@ -57,5 +65,10 @@ public class UserCard extends Composite {
         image.setUrl(user.getImage());
         title.setText(user.getName());
         description.setText(user.getEmail());
+    }
+
+    @UiHandler("card")
+    void card(ClickEvent e) {
+        MaterialPathAnimator.animate(card, overlay);
     }
 }

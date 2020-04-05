@@ -17,21 +17,15 @@
  * limitations under the License.
  * #L%
  */
-package com.github.gwtmaterialdesign.client.application.fadethrough;
+package com.github.gwtmaterialdesign.client.application.fadethrough.products;
 
-import com.github.gwtmaterialdesign.client.application.fadethrough.users.UserListModule;
-import com.github.gwtmaterialdesign.client.application.fadethrough.products.ProductListModule;
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 
-public class
-FadeThroughModule extends AbstractPresenterModule {
+public class ProductListModule extends AbstractPresenterModule {
 
     @Override
     protected void configure() {
-        install(new UserListModule());
-        install(new ProductListModule());
-
-        bindPresenter(FadeThroughPresenter.class, FadeThroughPresenter.MyView.class, FadeThroughView.class,
-                FadeThroughPresenter.MyProxy.class);
+        bindPresenter(ProductListPresenter.class, ProductListPresenter.MyView.class, ProductListView.class,
+                ProductListPresenter.MyProxy.class);
     }
 }

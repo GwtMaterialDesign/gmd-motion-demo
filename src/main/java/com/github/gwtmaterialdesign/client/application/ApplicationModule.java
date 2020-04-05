@@ -20,6 +20,7 @@
 package com.github.gwtmaterialdesign.client.application;
 
 import com.github.gwtmaterialdesign.client.application.fadethrough.FadeThroughModule;
+import com.github.gwtmaterialdesign.client.application.sharedaxis.x.SharedAxisXModule;
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 
 public class
@@ -28,6 +29,7 @@ ApplicationModule extends AbstractPresenterModule {
     @Override
     protected void configure() {
         install(new FadeThroughModule());
+        install(new SharedAxisXModule());
 
         bindPresenter(ApplicationPresenter.class, ApplicationPresenter.MyView.class, ApplicationView.class,
             ApplicationPresenter.MyProxy.class);

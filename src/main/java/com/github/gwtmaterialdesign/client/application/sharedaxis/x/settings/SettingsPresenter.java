@@ -17,11 +17,9 @@
  * limitations under the License.
  * #L%
  */
-package com.github.gwtmaterialdesign.client.application.fadethrough.target;
+package com.github.gwtmaterialdesign.client.application.sharedaxis.x.settings;
 
-import com.github.gwtmaterialdesign.client.application.fadethrough.FadeThroughPresenter;
-import com.github.gwtmaterialdesign.client.generator.DataGenerator;
-import com.github.gwtmaterialdesign.client.generator.product.Product;
+import com.github.gwtmaterialdesign.client.application.sharedaxis.x.SharedAxisXPresenter;
 import com.github.gwtmaterialdesign.client.place.NameTokens;
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
@@ -31,26 +29,24 @@ import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import gwt.material.design.motion.client.pattern.fadethrough.MaterialFadeThrough;
+import gwt.material.design.motion.client.pattern.sharedaxis.MaterialSharedAxis;
 
-import java.util.List;
-
-public class TargetPresenter extends Presenter<TargetPresenter.MyView, TargetPresenter.MyProxy> {
+public class SettingsPresenter extends Presenter<SettingsPresenter.MyView, SettingsPresenter.MyProxy> {
 
     interface MyView extends View {
-        void buildProducts(List<Product> products);
     }
 
     @ProxyStandard
-    @NameToken(NameTokens.PRODUCTS)
-    interface MyProxy extends ProxyPlace<TargetPresenter> {
+    @NameToken(NameTokens.SETTINGS)
+    interface MyProxy extends ProxyPlace<SettingsPresenter> {
     }
 
     @Inject
-    public TargetPresenter(
+    public SettingsPresenter(
         EventBus eventBus,
         MyView view,
         MyProxy proxy) {
-        super(eventBus, view, proxy, FadeThroughPresenter.SLOT_MAIN);
+        super(eventBus, view, proxy, SharedAxisXPresenter.SLOT_MAIN);
     }
 
     @Override
@@ -58,14 +54,13 @@ public class TargetPresenter extends Presenter<TargetPresenter.MyView, TargetPre
         super.onReveal();
 
         asWidget().setVisible(false);
-        MaterialFadeThrough.getInstance().enter(asWidget());
-        getView().buildProducts(new DataGenerator().generateProducts(5));
+        MaterialSharedAxis.getInstance().enter(asWidget());
     }
 
     @Override
     protected void onHide() {
         super.onHide();
 
-        MaterialFadeThrough.getInstance().exit(asWidget(), () -> asWidget().removeFromParent());
+        MaterialSharedAxis.getInstance().exit(asWidget(), () -> asWidget().removeFromParent());
     }
 }

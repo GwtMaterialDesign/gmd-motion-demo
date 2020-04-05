@@ -17,15 +17,21 @@
  * limitations under the License.
  * #L%
  */
-package com.github.gwtmaterialdesign.client.application.fadethrough.target;
+package com.github.gwtmaterialdesign.client.application.sharedaxis.x;
 
+import com.github.gwtmaterialdesign.client.application.sharedaxis.x.login.LoginModule;
+import com.github.gwtmaterialdesign.client.application.sharedaxis.x.settings.SettingsModule;
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 
-public class TargetModule extends AbstractPresenterModule {
+public class
+SharedAxisXModule extends AbstractPresenterModule {
 
     @Override
     protected void configure() {
-        bindPresenter(TargetPresenter.class, TargetPresenter.MyView.class, TargetView.class,
-                TargetPresenter.MyProxy.class);
+        install(new LoginModule());
+        install(new SettingsModule());
+
+        bindPresenter(SharedAxisXPresenter.class, SharedAxisXPresenter.MyView.class, SharedAxisXView.class,
+                SharedAxisXPresenter.MyProxy.class);
     }
 }

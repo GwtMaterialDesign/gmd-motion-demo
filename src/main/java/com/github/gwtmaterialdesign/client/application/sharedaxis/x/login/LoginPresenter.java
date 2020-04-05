@@ -17,11 +17,11 @@
  * limitations under the License.
  * #L%
  */
-package com.github.gwtmaterialdesign.client.application.fadethrough.source;
+package com.github.gwtmaterialdesign.client.application.sharedaxis.x.login;
 
-import com.github.gwtmaterialdesign.client.application.fadethrough.FadeThroughPresenter;
-import com.github.gwtmaterialdesign.client.generator.DataGenerator;
+import com.github.gwtmaterialdesign.client.application.sharedaxis.x.SharedAxisXPresenter;
 import com.github.gwtmaterialdesign.client.generator.user.User;
+import com.github.gwtmaterialdesign.client.generator.user.UserGenerator;
 import com.github.gwtmaterialdesign.client.place.NameTokens;
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
@@ -31,25 +31,24 @@ import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import gwt.material.design.motion.client.pattern.fadethrough.MaterialFadeThrough;
+import gwt.material.design.motion.client.pattern.sharedaxis.MaterialSharedAxis;
 
-import java.util.List;
-
-public class SourcePresenter extends Presenter<SourcePresenter.MyView, SourcePresenter.MyProxy> {
+public class LoginPresenter extends Presenter<LoginPresenter.MyView, LoginPresenter.MyProxy> {
     interface MyView extends View {
-        void buildUsers(List<User> users);
+        void setUser(User user);
     }
 
     @ProxyStandard
-    @NameToken(NameTokens.USERS)
-    interface MyProxy extends ProxyPlace<SourcePresenter> {
+    @NameToken(NameTokens.LOGIN)
+    interface MyProxy extends ProxyPlace<LoginPresenter> {
     }
 
     @Inject
-    public SourcePresenter(
+    public LoginPresenter(
         EventBus eventBus,
         MyView view,
         MyProxy proxy) {
-        super(eventBus, view, proxy, FadeThroughPresenter.SLOT_MAIN);
+        super(eventBus, view, proxy, SharedAxisXPresenter.SLOT_MAIN);
     }
 
     @Override
@@ -62,16 +61,14 @@ public class SourcePresenter extends Presenter<SourcePresenter.MyView, SourcePre
         super.onReveal();
 
         asWidget().setVisible(false);
-        MaterialFadeThrough.getInstance().enter(asWidget());
-
-        // Build Users
-        getView().buildUsers(new DataGenerator().generateUsers(10));
+        MaterialSharedAxis.getInstance().enter(asWidget());
+        getView().setUser(UserGenerator.generate());
     }
 
     @Override
     protected void onHide() {
         super.onHide();
 
-        MaterialFadeThrough.getInstance().exit(asWidget(), () -> asWidget().removeFromParent());
+        MaterialSharedAxis.getInstance().exit(asWidget(), () -> asWidget().removeFromParent());
     }
 }

@@ -17,14 +17,15 @@
  * limitations under the License.
  * #L%
  */
-package com.github.gwtmaterialdesign.client.application.fadethrough.source;
+package com.github.gwtmaterialdesign.client.application.sharedaxis.x.settings;
 
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 
-public class SourceModule extends AbstractPresenterModule {
+public class SettingsModule extends AbstractPresenterModule {
+
     @Override
     protected void configure() {
-        bindPresenter(SourcePresenter.class, SourcePresenter.MyView.class, SourceView.class,
-                SourcePresenter.MyProxy.class);
+        bindPresenter(SettingsPresenter.class, SettingsPresenter.MyView.class, SettingsView.class,
+                SettingsPresenter.MyProxy.class);
     }
 }

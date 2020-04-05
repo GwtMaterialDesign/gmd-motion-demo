@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package com.github.gwtmaterialdesign.client.application.fadethrough;
+package com.github.gwtmaterialdesign.client.application.sharedaxis.x;
 
 import com.github.gwtmaterialdesign.client.place.NameTokens;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -31,8 +31,8 @@ import com.gwtplatform.mvp.client.proxy.PlaceManager;
 import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
 import gwt.material.design.client.ui.MaterialPanel;
 
-public class FadeThroughView extends ViewImpl implements FadeThroughPresenter.MyView {
-    interface Binder extends UiBinder<Widget, FadeThroughView> {
+public class SharedAxisXView extends ViewImpl implements SharedAxisXPresenter.MyView {
+    interface Binder extends UiBinder<Widget, SharedAxisXView> {
     }
 
     @UiField
@@ -41,27 +41,28 @@ public class FadeThroughView extends ViewImpl implements FadeThroughPresenter.My
     private PlaceManager placeManager;
 
     @Inject
-    FadeThroughView(Binder uiBinder,
+    SharedAxisXView(Binder uiBinder,
                     PlaceManager placeManager) {
         initWidget(uiBinder.createAndBindUi(this));
-        bindSlot(FadeThroughPresenter.SLOT_MAIN, container);
+        bindSlot(SharedAxisXPresenter.SLOT_MAIN, container);
 
         this.placeManager = placeManager;
     }
 
-    @UiHandler("users")
-    void users(ClickEvent event) {
-        PlaceRequest placeRequest = new PlaceRequest.Builder()
-            .nameToken(NameTokens.USERS)
-            .build();
-
-        placeManager.revealPlace(placeRequest);
+    @UiHandler("next")
+    void next(ClickEvent event) {
+        boolean settings = placeManager.getCurrentPlaceRequest().getNameToken().equals(NameTokens.SETTINGS);
+        reveal(settings ? NameTokens.USERS : NameTokens.SETTINGS);
     }
 
-    @UiHandler("products")
-    void products(ClickEvent event) {
+    @UiHandler("back")
+    void back(ClickEvent event) {
+
+    }
+
+    protected void reveal(String nameToken) {
         PlaceRequest placeRequest = new PlaceRequest.Builder()
-            .nameToken(NameTokens.PRODUCTS)
+            .nameToken(nameToken)
             .build();
 
         placeManager.revealPlace(placeRequest);

@@ -22,4 +22,6 @@ package com.github.gwtmaterialdesign.client.place;
 public class NameTokens {
     public static final String USERS = "users";
     public static final String PRODUCTS = "products";
+    public static final String LOGIN = "login";
+    public static final String SETTINGS = "settings";
 }
