@@ -1,0 +1,5 @@
+/node_modules/
+/pwa/
+/target
+/gmd-motion-demo.iml
+/package-lock.json
