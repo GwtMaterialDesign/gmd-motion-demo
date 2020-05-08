@@ -20,6 +20,7 @@
 package com.github.gwtmaterialdesign.client.application.home.dashboard;
 
 import com.github.gwtmaterialdesign.client.application.ApplicationPresenter;
+import com.github.gwtmaterialdesign.client.application.home.HomePresenter;
 import com.github.gwtmaterialdesign.client.generator.DataGenerator;
 import com.github.gwtmaterialdesign.client.generator.product.Product;
 import com.github.gwtmaterialdesign.client.place.NameTokens;
@@ -51,7 +52,7 @@ public class DashboardPresenter extends Presenter<DashboardPresenter.MyView, Das
         EventBus eventBus,
         MyView view,
         MyProxy proxy) {
-        super(eventBus, view, proxy, ApplicationPresenter.SLOT_MAIN);
+        super(eventBus, view, proxy, HomePresenter.SLOT_MAIN);
     }
 
     @Override

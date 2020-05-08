@@ -44,7 +44,6 @@ import gwt.material.design.amcore.client.base.InterfaceColorSet;
 import gwt.material.design.amcore.client.base.Percent;
 import gwt.material.design.amcore.client.color.Color;
 import gwt.material.design.amcore.client.scrollbar.Scrollbar;
-import gwt.material.design.amcore.client.theme.DarkTheme;
 import gwt.material.design.client.ui.MaterialRow;
 
 public class DashboardCharts extends Composite {
@@ -66,7 +65,6 @@ public class DashboardCharts extends Composite {
     protected void onLoad() {
         super.onLoad();
 
-        Am4Core.useTheme(new DarkTheme());
         generateActiveUsers();
         generatePerformance();
     }

@@ -29,7 +29,13 @@ import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.Proxy;
 import gwt.material.design.addins.client.dark.AddinsDarkThemeLoader;
+import gwt.material.design.amcharts.client.Am4Charts;
+import gwt.material.design.amcore.client.Am4Core;
+import gwt.material.design.amcore.client.theme.AnimatedTheme;
+import gwt.material.design.amcore.client.theme.DarkTheme;
+import gwt.material.design.amcore.client.theme.MaterialTheme;
 import gwt.material.design.client.MaterialDesign;
+import gwt.material.design.client.theme.dark.ColorScheme;
 import gwt.material.design.client.theme.dark.CoreDarkThemeLoader;
 import gwt.material.design.client.theme.dark.DarkThemeManager;
 
@@ -61,6 +67,17 @@ public class ApplicationPresenter
             .register(new AddinsDarkThemeLoader())
             .register(new AppDarkThemeLoader())
             .load();
+
+        // Dark Theme config for AmCharts
+        Am4Core.useTheme(new AnimatedTheme());
+        Am4Core.useTheme(new DarkTheme());
+        DarkThemeManager.get().addColorSchemeChangeHandler(event -> {
+            if (event.getColorScheme() == ColorScheme.DARK) {
+                Am4Core.useTheme(new DarkTheme());
+            } else {
+                Am4Core.useTheme(new MaterialTheme());
+            }
+        });
 
         StyleInjector.inject(AppResources.INSTANCE.appCss().getText());
         MaterialDesign.injectJs(AppResources.INSTANCE.fakerJs());

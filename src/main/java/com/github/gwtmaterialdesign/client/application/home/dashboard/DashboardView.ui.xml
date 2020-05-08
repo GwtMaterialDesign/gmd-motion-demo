@@ -22,9 +22,6 @@
 			 xmlns:c="urn:import:com.github.gwtmaterialdesign.client.application.home.dashboard.components">
 
 	<m:MaterialRow marginTop="32">
-		<m:MaterialBreadcrumb text="Sample" />
-		<m:MaterialBreadcrumb text="Sample" />
-		<m:MaterialBreadcrumb text="Sample" />
 		<m:MaterialLabel text="Here's whats happening" fontSize="1.6em"/>
 		<c:DashboardHeader />
 		<c:DashboardCharts />

@@ -1,6 +1,4 @@
 /** Default Style for your application specific styles **/
-header {
-    padding: 12px;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
+body {
+    background: #f4f6f8;
 }
