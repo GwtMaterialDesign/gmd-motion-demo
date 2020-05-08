@@ -7,9 +7,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,27 +17,27 @@
  * limitations under the License.
  * #L%
  */
-package com.github.gwtmaterialdesign.client.application;
+package com.github.gwtmaterialdesign.client.application.home.dashboard;
 
+import com.github.gwtmaterialdesign.client.generator.product.Product;
+import com.github.gwtmaterialdesign.client.widget.ProductCollectionItem;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Widget;
-import com.google.inject.Inject;
 import com.gwtplatform.mvp.client.ViewImpl;
-import gwt.material.design.client.ui.MaterialContainer;
-import gwt.material.design.client.ui.MaterialPanel;
+import gwt.material.design.client.ui.MaterialCollection;
 
-public class ApplicationView extends ViewImpl implements ApplicationPresenter.MyView {
-    interface Binder extends UiBinder<Widget, ApplicationView> {
+import javax.inject.Inject;
+import java.util.List;
+
+public class DashboardView extends ViewImpl implements DashboardPresenter.MyView {
+
+    interface Binder extends UiBinder<Widget, DashboardView> {
     }
 
-    @UiField
-    MaterialPanel container;
-
     @Inject
-    ApplicationView(Binder uiBinder) {
+    DashboardView(Binder uiBinder) {
         initWidget(uiBinder.createAndBindUi(this));
-        bindSlot(ApplicationPresenter.SLOT_MAIN, container);
     }
 
     @Override

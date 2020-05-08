@@ -1,8 +1,10 @@
+package com.github.gwtmaterialdesign.client.application.home.dashboard.components;
+
 /*
  * #%L
  * GwtMaterial
  * %%
- * Copyright (C) 2015 - 2017 GwtMaterialDesign
+ * Copyright (C) 2015 - 2016 GwtMaterialDesign
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,27 +19,23 @@
  * limitations under the License.
  * #L%
  */
-package com.github.gwtmaterialdesign.client.application;
 
+
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
-import com.google.inject.Inject;
-import com.gwtplatform.mvp.client.ViewImpl;
-import gwt.material.design.client.ui.MaterialContainer;
-import gwt.material.design.client.ui.MaterialPanel;
 
-public class ApplicationView extends ViewImpl implements ApplicationPresenter.MyView {
-    interface Binder extends UiBinder<Widget, ApplicationView> {
+public class DashboardList extends Composite {
+
+    private static DashboardCardUiBinder uiBinder = GWT.create(DashboardCardUiBinder.class);
+
+
+    interface DashboardCardUiBinder extends UiBinder<Widget, DashboardList> {
     }
 
-    @UiField
-    MaterialPanel container;
-
-    @Inject
-    ApplicationView(Binder uiBinder) {
+    public DashboardList() {
         initWidget(uiBinder.createAndBindUi(this));
-        bindSlot(ApplicationPresenter.SLOT_MAIN, container);
     }
 
     @Override

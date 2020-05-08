@@ -1,0 +1,75 @@
+<!--
+  #%L
+  GwtMaterial
+  %%
+  Copyright (C) 2015 - 2016 GwtMaterialDesign
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  #L%
+  -->
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+			 xmlns:m="urn:import:gwt.material.design.client.ui"
+>
+
+	<m:MaterialRow>
+		<!-- Todays money -->
+		<m:MaterialColumn grid="s3">
+			<m:MaterialCard>
+				<m:MaterialCardContent padding="12">
+					<m:MaterialRow padding="12">
+						<m:MaterialLabel text="Active Users" fontWeight="BOLD"/>
+						<m:MaterialLabel text="Page views per second" secondary="true"/>
+					</m:MaterialRow>
+					<m:MaterialRow ui:field="activeUsersRow" height="200px" width="100%"/>
+					<m:MaterialRow>
+						<m:MaterialCollection backgroundColor="TRANSPARENT">
+							<m:MaterialCollectionItem backgroundColor="TRANSPARENT">
+								<m:MaterialLabel text="/app/projects" textColor="GREY" display="INLINE_BLOCK"/>
+								<m:MaterialLabel text="24" display="INLINE_BLOCK" textAlign="RIGHT" float="RIGHT"/>
+							</m:MaterialCollectionItem>
+							<m:MaterialCollectionItem backgroundColor="TRANSPARENT">
+								<m:MaterialLabel text="/app/projects" textColor="GREY" display="INLINE_BLOCK"/>
+								<m:MaterialLabel text="24" display="INLINE_BLOCK" textAlign="RIGHT" float="RIGHT"/>
+							</m:MaterialCollectionItem>
+							<m:MaterialCollectionItem backgroundColor="TRANSPARENT">
+								<m:MaterialLabel text="/app/projects" textColor="GREY" display="INLINE_BLOCK"/>
+								<m:MaterialLabel text="24" display="INLINE_BLOCK" textAlign="RIGHT" float="RIGHT"/>
+							</m:MaterialCollectionItem>
+							<m:MaterialCollectionItem backgroundColor="TRANSPARENT">
+								<m:MaterialLabel text="/app/projects" textColor="GREY" display="INLINE_BLOCK"/>
+								<m:MaterialLabel text="24" display="INLINE_BLOCK" textAlign="RIGHT" float="RIGHT"/>
+							</m:MaterialCollectionItem>
+						</m:MaterialCollection>
+					</m:MaterialRow>
+				</m:MaterialCardContent>
+				<m:MaterialCardAction textAlign="RIGHT">
+					<m:MaterialButton text="See All" iconType="KEYBOARD_ARROW_RIGHT" paddingRight="0" iconPosition="RIGHT" type="FLAT"/>
+				</m:MaterialCardAction>
+			</m:MaterialCard>
+		</m:MaterialColumn>
+
+		<!-- New Project -->
+		<m:MaterialColumn grid="s9">
+			<m:MaterialCard padding="12">
+				<m:MaterialCardContent padding="12">
+					<m:MaterialRow padding="12">
+						<m:MaterialLabel text="Performance over time" fontWeight="BOLD"/>
+						<m:MaterialLabel text="Page views per second" secondary="true"/>
+					</m:MaterialRow>
+					<m:MaterialRow ui:field="performanceRowChart" height="460px"/>
+				</m:MaterialCardContent>
+			</m:MaterialCard>
+		</m:MaterialColumn>
+	</m:MaterialRow>
+</ui:UiBinder> 

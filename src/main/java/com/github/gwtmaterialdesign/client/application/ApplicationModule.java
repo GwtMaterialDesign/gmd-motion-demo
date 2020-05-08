@@ -19,17 +19,20 @@
  */
 package com.github.gwtmaterialdesign.client.application;
 
-import com.github.gwtmaterialdesign.client.application.fadethrough.FadeThroughModule;
-import com.github.gwtmaterialdesign.client.application.sharedaxis.x.SharedAxisXModule;
+import com.github.gwtmaterialdesign.client.application.home.HomeModule;
+import com.github.gwtmaterialdesign.client.application.home.products.ProductListModule;
+import com.github.gwtmaterialdesign.client.application.home.users.UserListModule;
+import com.github.gwtmaterialdesign.client.application.login.LoginModule;
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 
-public class
-ApplicationModule extends AbstractPresenterModule {
+public class ApplicationModule extends AbstractPresenterModule {
 
     @Override
     protected void configure() {
-        install(new FadeThroughModule());
-        install(new SharedAxisXModule());
+        install(new LoginModule());
+        install(new HomeModule());
+        install(new ProductListModule());
+        install(new UserListModule());
 
         bindPresenter(ApplicationPresenter.class, ApplicationPresenter.MyView.class, ApplicationView.class,
             ApplicationPresenter.MyProxy.class);

@@ -1,0 +1,54 @@
+<!--
+  #%L
+  GwtMaterial
+  %%
+  Copyright (C) 2015 - 2017 GwtMaterialDesign
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  #L%
+  -->
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+			 xmlns:ma="urn:import:gwt.material.design.addins.client"
+			 xmlns:m="urn:import:gwt.material.design.client.ui">
+
+	<m:MaterialRow marginTop="32">
+		<m:MaterialHeader layoutPosition="FIXED" width="100%" top="0" depth="995">
+			<m:MaterialNavBar ui:field="navBar" activates="right-sidenav" backgroundColor="WHITE">
+				<m:MaterialNavBrand>
+					<m:MaterialLabel ui:field="navBrand" fontSize="0.8em"/>
+				</m:MaterialNavBrand>
+				<m:MaterialNavSection hideOn="NONE" float="RIGHT" marginRight="40">
+					<m:MaterialDarkModeToggle/>
+				</m:MaterialNavSection>
+			</m:MaterialNavBar>
+		</m:MaterialHeader>
+
+		<m:MaterialSideNavPush ui:field="sidenav" m:id="right-sidenav" width="300">
+			<ma:sideprofile.MaterialSideProfile url="https://miro.medium.com/max/5760/1*r2AuXvDuxdRWCqvmBhlssw.png">
+				<m:MaterialImage url="https://res.cloudinary.com/teepublic/image/private/s--XqBcjwVK--/c_crop,x_10,y_10/c_fit,w_830/c_crop,g_north_west,h_1038,w_1038,x_-104,y_-105/l_upload:v1565806151:production:blanks:vdbwo35fw6qtflw9kezw/fl_layer_apply,g_north_west,x_-215,y_-216/b_rgb:bbb0e4/c_limit,f_jpg,h_630,q_90,w_630/v1548392518/production/designs/4075639_0.jpg  "/>
+				<m:MaterialLabel text="GWT Material" textColor="WHITE"/>
+				<m:MaterialLink text="gwt-material@gmail.com" activates="dropProfile" iconType="ARROW_DROP_DOWN" iconPosition="RIGHT" textColor="WHITE"/>
+			</ma:sideprofile.MaterialSideProfile>
+			<m:MaterialSideNavContent ui:field="home" height="60px">
+
+				<ma:webp.MaterialWebpImage url="images/gmd-logo.webp" alt="logo" float="LEFT" width="32px" marginRight="20"/>
+				<m:MaterialPanel>
+					<m:MaterialLabel ui:field="name" fontWeight="BOLD" lineHeight="24" marginTop="12"/>
+					<m:MaterialLabel ui:field="version" lineHeight="12" fontSize="0.8em"/>
+				</m:MaterialPanel>
+			</m:MaterialSideNavContent>
+		</m:MaterialSideNavPush>
+
+		<m:MaterialContainer ui:field="container" />
+	</m:MaterialRow>
+</ui:UiBinder>

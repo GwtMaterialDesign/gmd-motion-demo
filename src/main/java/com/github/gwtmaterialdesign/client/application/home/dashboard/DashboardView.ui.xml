@@ -18,7 +18,16 @@
   #L%
   -->
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
-             xmlns:m="urn:import:gwt.material.design.client.ui">
+			 xmlns:m="urn:import:gwt.material.design.client.ui"
+			 xmlns:c="urn:import:com.github.gwtmaterialdesign.client.application.home.dashboard.components">
 
-    <m:MaterialPanel ui:field="container"/>
+	<m:MaterialRow marginTop="32">
+		<m:MaterialBreadcrumb text="Sample" />
+		<m:MaterialBreadcrumb text="Sample" />
+		<m:MaterialBreadcrumb text="Sample" />
+		<m:MaterialLabel text="Here's whats happening" fontSize="1.6em"/>
+		<c:DashboardHeader />
+		<c:DashboardCharts />
+		<c:DashboardList />
+	</m:MaterialRow>
 </ui:UiBinder>

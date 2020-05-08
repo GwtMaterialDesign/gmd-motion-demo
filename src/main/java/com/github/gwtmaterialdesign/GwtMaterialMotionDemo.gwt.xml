@@ -40,6 +40,7 @@
     <inherits name="gwt.material.design.GwtMaterialTable"/>
     <inherits name="gwt.material.design.themes.ThemeBlue"/>
     <inherits name="gwt.material.design.motion.GwtMaterialMotion"/>
+    <inherits name="gwt.material.design.amcharts.GwtMaterialAmCharts"/>
 
     <set-configuration-property name="CssResource.enableGss" value="true"/>
 

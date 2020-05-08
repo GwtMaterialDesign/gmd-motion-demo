@@ -239,6 +239,11 @@
             <artifactId>gwt-material-motion</artifactId>
             <version>${gwt-material.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.gwtmaterialdesign</groupId>
+            <artifactId>gwt-material-am4charts</artifactId>
+            <version>${gwt-material.version}</version>
+        </dependency>
 
         <!-- DI -->
         <dependency>
@@ -255,5 +260,5 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
-    </dependencies>
+	</dependencies>
 </project>

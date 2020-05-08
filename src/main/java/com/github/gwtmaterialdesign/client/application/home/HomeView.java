@@ -17,31 +17,28 @@
  * limitations under the License.
  * #L%
  */
-package com.github.gwtmaterialdesign.client.application;
+package com.github.gwtmaterialdesign.client.application.home;
 
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Widget;
-import com.google.inject.Inject;
 import com.gwtplatform.mvp.client.ViewImpl;
 import gwt.material.design.client.ui.MaterialContainer;
-import gwt.material.design.client.ui.MaterialPanel;
 
-public class ApplicationView extends ViewImpl implements ApplicationPresenter.MyView {
-    interface Binder extends UiBinder<Widget, ApplicationView> {
+import javax.inject.Inject;
+
+public class HomeView extends ViewImpl implements HomePresenter.MyView {
+
+    interface Binder extends UiBinder<Widget, HomeView> {
     }
 
     @UiField
-    MaterialPanel container;
+    MaterialContainer container;
 
     @Inject
-    ApplicationView(Binder uiBinder) {
+    HomeView(Binder uiBinder) {
         initWidget(uiBinder.createAndBindUi(this));
-        bindSlot(ApplicationPresenter.SLOT_MAIN, container);
-    }
 
-    @Override
-    protected void onAttach() {
-        super.onAttach();
+        bindSlot(HomePresenter.SLOT_MAIN, container);
     }
 }

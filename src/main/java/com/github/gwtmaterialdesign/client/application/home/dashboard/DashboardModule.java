@@ -17,13 +17,15 @@
  * limitations under the License.
  * #L%
  */
-package com.github.gwtmaterialdesign.client.place;
+package com.github.gwtmaterialdesign.client.application.home.dashboard;
 
-public class NameTokens {
-    public static final String USERS = "users";
-    public static final String PRODUCTS = "products";
-    public static final String LOGIN = "login";
-    public static final String HOME = "home";
-    public static final String DASHBOARD = "dashboard";
-    public static final String SETTINGS = "settings";
+import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
+
+public class DashboardModule extends AbstractPresenterModule {
+
+    @Override
+    protected void configure() {
+        bindPresenter(DashboardPresenter.class, DashboardPresenter.MyView.class, DashboardView.class,
+                DashboardPresenter.MyProxy.class);
+    }
 }

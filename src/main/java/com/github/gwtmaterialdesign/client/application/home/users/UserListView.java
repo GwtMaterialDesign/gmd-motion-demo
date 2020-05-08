@@ -17,31 +17,37 @@
  * limitations under the License.
  * #L%
  */
-package com.github.gwtmaterialdesign.client.application;
+package com.github.gwtmaterialdesign.client.application.home.users;
 
+import com.github.gwtmaterialdesign.client.generator.user.User;
+import com.github.gwtmaterialdesign.client.widget.UserCard;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Widget;
-import com.google.inject.Inject;
 import com.gwtplatform.mvp.client.ViewImpl;
-import gwt.material.design.client.ui.MaterialContainer;
-import gwt.material.design.client.ui.MaterialPanel;
+import gwt.material.design.client.ui.MaterialRow;
 
-public class ApplicationView extends ViewImpl implements ApplicationPresenter.MyView {
-    interface Binder extends UiBinder<Widget, ApplicationView> {
+import javax.inject.Inject;
+import java.util.List;
+
+public class UserListView extends ViewImpl implements UserListPresenter.MyView {
+
+    interface Binder extends UiBinder<Widget, UserListView> {
     }
 
     @UiField
-    MaterialPanel container;
+    MaterialRow userRow;
 
     @Inject
-    ApplicationView(Binder uiBinder) {
+    UserListView(Binder uiBinder) {
         initWidget(uiBinder.createAndBindUi(this));
-        bindSlot(ApplicationPresenter.SLOT_MAIN, container);
     }
 
     @Override
-    protected void onAttach() {
-        super.onAttach();
+    public void buildUsers(List<User> users) {
+        userRow.clear();
+        for (User user : users) {
+            userRow.add(new UserCard(user));
+        }
     }
 }
